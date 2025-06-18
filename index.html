@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Nav Section===================================== -->
+    <nav>
+        <div class="nav">
+            <img class="nav_img" src="img/logo.png" alt="logo">
+        </div>
+    </nav>
+
+
+    <section class="mainbox">
+        <!-- header Section===================================== -->
+        <div class="header_mainbox">
+            <ul class="head_ul">
+                <li class="head_li"><a class="head_a" href="#">Leads</a></li>
+                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
+                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
+                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
+                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
+            </ul>
+        </div>
+        <!-- leads Section===================================== -->
+        <div class="leads_mainbox">
+            <div class="lead_op">
+
+                <h1 class="lead_title">Leads</h1>
+                <div class="so_btn">
+                    <button class="so_btnn so1">UnPaid Leads</button>
+                    <button class="so_btnn">Paid Leads</button>
+                    <button class="so_btnn">Facebook Leads</button>
+                </div>
+                <!-- Sort Section===================================== -->
+                <div class="sor_btn">
+                    <button class="sor_btnn sor1">Sort</button>
+                    <button id="add_btn" class="sor_btnn sor2">Add</button>
+                </div>
+            </div>
+            <!-- lead container Section===================================== -->
+            <div class="leads_container"></div>
+        </div>
+        <!-- Add Section===================================== -->
+        <div class="add_mainbox">
+            <div class="addtop">
+                <h1 class="add_top_add">ADD</h1>
+                <h1 id="acbtn" class="add_top_X">X</h1>
+            </div>
+            <div class="addmed">
+                <input value="none" class="input" type="date">
+                <input value="none" id="reg" class="input" type="text" placeholder="Region" required>
+                <input value="none" id="Aname" class="input" type="text" placeholder="Agent Name">
+                <input value="none" id="Cname" class="input" type="text" placeholder="Client Name">
+                <input value="none" id="Con" class="input" type="text" placeholder="Contct no.">
+                <input value="none" id="ser" class="input" type="text" placeholder="Service">
+                <input value="none" id="email" class="input" type="email" placeholder="Email">
+                <input value="none" id="loca" class="input" type="text" placeholder="Location">
+                <input value="none" id="descri" class="input" type="text" placeholder="Description">
+                <input value="none" id="stat" class="input" type="text" placeholder="Status">
+                <input value="none" id="lin" class="input" type="url" placeholder="link">
+            </div>
+            <button id="addbtn" class="add_btn">Add Lead</button>
+        </div>
+
+    </section>
+
+
+
+    <script src="lead.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
