@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Nav Section======================================================= */
+
+.nav{
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.nav_img{
+    margin: 20px;
+}
+
+
+/* header Section======================================================= */
+
+.mainbox{
+    display: flex;
+}
+
+.header_mainbox{
+    width: 35vh;
+    height: 92vh;
+    border-right: 2px solid lightgray;
+    border-top: none;
+}
+
+.head_ul{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    /* border: 2px solid black; */
+}
+.head_li{
+    list-style: none;
+    padding: 0px 0px;
+    width: 100%;
+    height: 30px;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.head_li:hover{
+    background-color: lightgray;
+}
+
+.head_a{
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+}
+
+
+/* leads Section======================================================= */
+
+.leads_mainbox{
+    width: 100%;
+    height: 92vh;
+    /* border: 2px solid black; */
+}
+
+.lead_op{
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 30vh;
+    
+}
+
+.lead_title{
+    font-size: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.so_btn{
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.so1{
+    margin-left: 20px;
+}
+
+.so_btnn{
+    border: 1px solid black;
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 7px;
+    background-color: white;
+    
+}
+
+.so_btnn:hover{
+    background-color: lightgray;
+}
+
+.sor_btn{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sor_btnn{
+    border: 1px solid black;
+    width: 120px;
+    height: 40px;
+    border-radius: 7px;
+    background-color: white;
+    
+}
+
+.sor1{
+    margin-left: 20px;
+}
+
+.sor2{
+    margin-right: 20px;
+}
+
+.sor_btnn:hover{
+    background-color: lightgray;
+}
+
+
+
+/* leads box Section======================================================= */
+
+
+.leads_container{
+    border-top: 1px solid lightgray;
+    width: 100%;
+    height: 62vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.lead_mainbox{
+    width: 350px;
+    height: 200px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.lead_re{
+    background-color: rgb(255, 38, 38);
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    width: 100%;
+}
+
+.leadtx{
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 40px;    
+}
+
+.lead_tx{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.lead_service{
+    text-align: center;
+}
+
+.lead_para{
+    text-align: center;
+    width: 90%;
+    height: 85px;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    margin: 5px;
+}
+
+/* Add Section======================================================= */
+
+.add_mainbox{
+    width: 80%;
+    height: 80vh;
+    position: absolute;
+    border: 1px solid lightgray;
+    margin-left: 10%;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addtop{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.add_top_add{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.add_top_X{
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.addmed{
+    width: 90%;
+    height: 50%;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    justify-content: space-around;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.input{
+    width: 200px;
+    height: 35px;
+    font-size: 16px;
+    padding: 0px 10px;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.add_btn{
+    border: 1px solid black;
+    width: 120px;
+    height: 40px;
+    border-radius: 7px;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.add_btn:hover{
+    background-color: lightgray;
+}
