@@ -1,0 +1,11 @@
+@media only screen and (max-width: 768px) {
+    .header_mainbox {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .lead_mainbox {
+        width: 100%;
+    }
+}
