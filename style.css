@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,7 +6,7 @@
 
 /* Nav Section======================================================= */
 
-.nav{
+.nav {
     width: 100%;
     height: 7vh;
     border-bottom: 1px solid lightgray;
@@ -14,31 +14,32 @@
     align-items: center;
 }
 
-.nav_img{
+.nav_img {
     margin: 20px;
 }
 
 
 /* header Section======================================================= */
 
-.mainbox{
+.mainbox {
     display: flex;
 }
 
-.header_mainbox{
+.header_mainbox {
     width: 35vh;
     height: 92vh;
     border-right: 2px solid lightgray;
     border-top: none;
 }
 
-.head_ul{
+.head_ul {
     display: flex;
     flex-direction: column;
     padding-top: 30px;
     /* border: 2px solid black; */
 }
-.head_li{
+
+.head_li {
     list-style: none;
     padding: 0px 0px;
     width: 100%;
@@ -49,11 +50,12 @@
     margin-bottom: 10px;
     cursor: pointer;
 }
-.head_li:hover{
+
+.head_li:hover {
     background-color: lightgray;
 }
 
-.head_a{
+.head_a {
     text-decoration: none;
     color: black;
     margin-left: 10px;
@@ -62,20 +64,20 @@
 
 /* leads Section======================================================= */
 
-.leads_mainbox{
+.leads_mainbox {
     width: 100%;
     height: 92vh;
     /* border: 2px solid black; */
 }
 
-.lead_op{
+.lead_op {
     /* border: 2px solid black; */
     width: 100%;
     height: 30vh;
-    
+
 }
 
-.lead_title{
+.lead_title {
     font-size: 30px;
     padding-top: 10px;
     padding-left: 10px;
@@ -83,7 +85,7 @@
     border-bottom: 1px solid lightgray;
 }
 
-.so_btn{
+.so_btn {
     width: 100%;
     height: 50px;
     /* border: 1px solid black; */
@@ -92,28 +94,28 @@
     justify-content: left;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+
 }
 
-.so1{
+.so1 {
     margin-left: 20px;
 }
 
-.so_btnn{
-    border: 1px solid black;
+.so_btnn {
+    border: 1px solid gray;
     width: 120px;
     height: 40px;
     margin-right: 10px;
     border-radius: 7px;
     background-color: white;
-    
+
 }
 
-.so_btnn:hover{
+.so_btnn:hover {
     background-color: lightgray;
 }
 
-.sor_btn{
+.sor_btn {
     /* border: 1px solid black; */
     width: 100%;
     height: 50px;
@@ -122,24 +124,24 @@
     justify-content: space-between;
 }
 
-.sor_btnn{
-    border: 1px solid black;
+.sor_btnn {
+    border: 1px solid gray;
     width: 120px;
     height: 40px;
     border-radius: 7px;
     background-color: white;
-    
+
 }
 
-.sor1{
+.sor1 {
     margin-left: 20px;
 }
 
-.sor2{
+.sor2 {
     margin-right: 20px;
 }
 
-.sor_btnn:hover{
+.sor_btnn:hover {
     background-color: lightgray;
 }
 
@@ -148,7 +150,7 @@
 /* leads box Section======================================================= */
 
 
-.leads_container{
+.leads_container {
     border-top: 1px solid lightgray;
     width: 100%;
     height: 62vh;
@@ -158,23 +160,23 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+
 }
 
-.lead_mainbox{
+.lead_mainbox {
     width: 350px;
     height: 200px;
-    border: 2px solid black;
+    border: 1px solid gray;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     margin-right: 10px;
     margin-bottom: 10px;
-    
+
 }
 
-.lead_re{
+.lead_re {
     background-color: rgb(255, 38, 38);
     text-align: center;
     font-size: 25px;
@@ -182,25 +184,25 @@
     width: 100%;
 }
 
-.leadtx{
+.leadtx {
     /* border: 2px solid black; */
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    height: 40px;    
+    height: 40px;
 }
 
-.lead_tx{
+.lead_tx {
     font-size: 20px;
     font-weight: 500;
 }
 
-.lead_service{
+.lead_service {
     text-align: center;
 }
 
-.lead_para{
+.lead_para {
     text-align: center;
     width: 90%;
     height: 85px;
@@ -214,7 +216,7 @@
 
 /* Add Section======================================================= */
 
-.add_mainbox{
+.add_mainbox {
     width: 80%;
     height: 80vh;
     position: absolute;
@@ -227,24 +229,24 @@
     align-items: center;
 }
 
-.addtop{
+.addtop {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.add_top_add{
+.add_top_add {
     margin-left: 10px;
     margin-top: 10px;
 }
 
-.add_top_X{
+.add_top_X {
     margin-right: 10px;
     margin-top: 10px;
     cursor: pointer;
 }
 
-.addmed{
+.addmed {
     width: 90%;
     height: 50%;
     border: 1px solid lightgray;
@@ -256,17 +258,18 @@
     scrollbar-width: none;
 }
 
-.input{
+.input {
     width: 200px;
     height: 35px;
     font-size: 16px;
     padding: 0px 10px;
     margin: 0px auto;
     margin-top: 10px;
+    border: 1px solid gray;
 }
 
-.add_btn{
-    border: 1px solid black;
+.add_btn {
+    border: 1px solid gray;
     width: 120px;
     height: 40px;
     border-radius: 7px;
@@ -275,6 +278,6 @@
     margin-top: 50px;
 }
 
-.add_btn:hover{
+.add_btn:hover {
     background-color: lightgray;
 }
