@@ -42,6 +42,7 @@ addbtn.addEventListener('click', () => {
             mainCon.appendChild(div)
         }
     )
+    document.querySelector('.add_mainbox').style.display = "none"
 
 })
 
