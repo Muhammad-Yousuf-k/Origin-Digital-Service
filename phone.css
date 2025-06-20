@@ -45,8 +45,20 @@
     }
 }
 
+@media only screen and (max-width: 424px) {
+
+
+    .so_btnn {
+        width: 100px;
+    }
+}
+
 @media only screen and (max-width: 380px) {
     .lead_mainbox {
         width: 100%;
+    }
+
+    .so_btnn {
+        width: 80px;
     }
 }
