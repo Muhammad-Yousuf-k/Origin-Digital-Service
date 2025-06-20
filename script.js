@@ -26,6 +26,7 @@ let stat = document.getElementById('stat')
 let lin = document.getElementById('lin')
 
 
+
 let mainCon = document.querySelector('.leads_container')
 let addbtn = document.getElementById('addbtn')
 addbtn.addEventListener('click', () => {
@@ -48,15 +49,24 @@ addbtn.addEventListener('click', () => {
     leadDataNewArr.forEach(
         (leadDataNewArr) => {
             let div = document.createElement('div')
-            div.className = "lead_mainbox"
-            div.innerHTML = `<h1 class="lead_re">${leadDataNewArr.region}</h1>
-                        <div class="leadtx">
-                            <h1 class="lead_tx" >${leadDataNewArr.date}</h1>
-                            <h1 class="lead_tx" >${leadDataNewArr.aname}</h1>
-                            <h1 class="lead_tx" >${leadDataNewArr.cname}</h1>
-                        </div>
-                        <h1 class="lead_service">${leadDataNewArr.service}</h1>
-                        <p class="lead_para">${leadDataNewArr.description}</p>`
+            div.className = "card"
+            div.innerHTML = `    <div class="card-header">
+      <h3>${leadDataNewArr.cname}</h3>
+      <div class="lead_re lead-type">${leadDataNewArr.region}</div>
+    </div>
+
+    <div class="lead-info"><strong>📞 phone:</strong><span class="card_wit">${leadDataNewArr.contact}</span></div>
+    <div class="lead-info"><strong>📧 email:</strong>${leadDataNewArr.email}</div>
+    <div class="lead-info"><strong>🛠️ service:</strong>${leadDataNewArr.service}</div>
+    <div class="lead-info"><strong>👤 agent:</strong>${leadDataNewArr.aname}</div>
+    <div class="lead-info"><strong>📍 location:</strong>${leadDataNewArr.location}</div>
+    <div class="lead-info"><strong>🔗 link:</strong> <a target="_blank" href="${leadDataNewArr.link}">${leadDataNewArr.link}</a></div>
+    <div class="status-badge">${leadDataNewArr.status}</div>
+
+    <div class="action-buttons">
+      <button id="viewbtn" class="btn btn-view">view</button>
+      <button class="btn btn-edit">edit</button>
+    </div>`
             mainCon.appendChild(div)
         }
     )
@@ -64,17 +74,17 @@ addbtn.addEventListener('click', () => {
     let region = document.querySelectorAll('.lead_re')
     for (let i = 0; i < region.length; i++) {
         if (region[i].innerHTML === "US-Lead") {
-            region[i].style.backgroundColor = 'lightblue'
+            region[i].style.backgroundColor = 'blue'
             console.log("us");
 
         } else if (region[i].innerHTML === "CA-Lead") {
-            region[i].style.backgroundColor = 'lightpink'
+            region[i].style.backgroundColor = 'pink'
             console.log("CA");
         } else if (region[i].innerHTML === "UK-Lead") {
-            region[i].style.backgroundColor = 'rgb(255, 65, 65)'
+            region[i].style.backgroundColor = 'red'
             console.log("UK");
         } else {
-            region[i].style.backgroundColor = 'rgb(126, 126, 126)'
+            region[i].style.backgroundColor = 'grey'
             console.log("etc");
 
         }
@@ -86,7 +96,5 @@ addbtn.addEventListener('click', () => {
         input[i].value = "none"
     }
 
+
 })
-
-
-
