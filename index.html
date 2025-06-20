@@ -14,7 +14,7 @@
     <!-- Nav Section===================================== -->
     <nav>
         <div class="nav">
-            <img class="nav_img" src="img/logo.png" alt="logo">
+            <!-- <img class="nav_img" src="img/logo.png" alt="logo"> -->
         </div>
     </nav>
 
@@ -23,37 +23,41 @@
         <!-- header Section===================================== -->
         <div class="header_mainbox">
             <ul class="head_ul">
+                <li class="head_li"><a class="head_a" href="#">Dashboard</a></li>
                 <li class="head_li"><a class="head_a" href="#">Leads</a></li>
-                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
                 <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
                 <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
                 <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
             </ul>
         </div>
         <!-- leads Section===================================== -->
-        <div class="leads_mainbox">
-            <div class="lead_op">
 
-                <h1 class="lead_title">Leads</h1>
-                <div class="so_btn">
-                    <button class="so_btnn so1">UnPaid Leads</button>
-                    <button class="so_btnn">Paid Leads</button>
-                    <button class="so_btnn">Facebook Leads</button>
+        <div class="space">
+            <div class="leads_mainbox">
+                <div class="lead_op">
+
+                    <h1 class="lead_title">Leads</h1>
+                    <div class="so_btn">
+                        <button class="so_btnn so1">UnPaid Leads</button>
+                        <button class="so_btnn">Paid Leads</button>
+                        <button class="so_btnn">Facebook Leads</button>
+                    </div>
+                    <!-- Sort Section===================================== -->
+                    <div class="sor_btn">
+                        <button class="sor_btnn sor1">Sort</button>
+                        <button id="add_btn" class="sor_btnn sor2">Add</button>
+                    </div>
                 </div>
-                <!-- Sort Section===================================== -->
-                <div class="sor_btn">
-                    <button class="sor_btnn sor1">Sort</button>
-                    <button id="add_btn" class="sor_btnn sor2">Add</button>
-                </div>
+                <!-- lead container Section===================================== -->
+                <div class="leads_container"></div>
             </div>
-            <!-- lead container Section===================================== -->
-            <div class="leads_container"></div>
         </div>
+
         <!-- Add Section===================================== -->
         <div class="add_mainbox">
             <div class="addtop">
                 <h1 class="add_top_add">ADD</h1>
-                <h1 id="acbtn" class="add_top_X">X</h1>
+                <h1 id="acbtn" class="add_top_X">&times;</h1>
             </div>
             <div class="form-container">
                 <form>
@@ -113,7 +117,7 @@
 
                         <div>
                             <label for="email">emails</label>
-                            <input value="none" id="email" class="input" type="email" placeholder="email">
+                            <input name="email" value="none" id="email" class="input" type="text" placeholder="email">
                         </div>
 
                         <div>
@@ -139,7 +143,7 @@
 
                         <div>
                             <label for="lin">link</label>
-                            <input value="none" id="lin" class="input" type="url" placeholder="link">
+                            <input value="none" id="lin" class="input" type="text" placeholder="link">
                         </div>
 
                     </div>
@@ -147,55 +151,38 @@
                     <button id="addbtn" class="submit-btn" type="submit">ADD Lead</button>
                 </form>
             </div>
-            <!-- <div class="addmed">
-                <input value="none" id="date" class="input" type="date">
-                <select class="input" id="reg">
-                    <option value="none">none</option>
-                    <option value="US-Lead">US-Lead</option>
-                    <option value="UK-Lead">UK-Lead</option>
-                    <option value="CA-Lead">CA-Lead</option>
-                </select>
-                <select class="input" id="Aname">
-                    <option value="none">none</option>
-                    <option value="Yousuf">Yousuf</option>
-                    <option value="Ahmed">Ahmed</option>
-                    <option value="Raza">Raza</option>
-                </select>
-                <input value="none" id="Cname" class="input" type="text" placeholder="Client Name">
-                <input value="none" id="Con" class="input" type="text" placeholder="Contct no.">
-                <select class="input" id="ser">
-                    <option value="none">none</option>
-                    <option value="SMM">SMM</option>
-                    <option value="VIDEO EDITING">VIDEO EDITING</option>
-                    <option value="ANIMATION">ANIMATION</option>
-                    <option value="LOGO DESIGN">LOGO DESIGN</option>
-                    <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
-                    <option value="WEB DESIGN">WEB DESIGN</option>
-                    <option value="MOBILE APP">MOBILE APP</option>
-                    <option value="SEO">SEO</option>
-                    <option value="BUSINESS CONSULTING">BUSINESS CONSULTING</option>
-                    <option value="RESUME WRITING">RESUME WRITING</option>
-                </select>
-                <input value="none" id="email" class="input" type="email" placeholder="Email">
-                <input value="none" id="loca" class="input" type="text" placeholder="Location">
-                <input value="none" id="descri" class="input" type="text" placeholder="Description">
-                <select class="input" id="stat">
-                    <option value="none">none</option>
-                    <option value="ES">ES</option>
-                    <option value="VM">VM</option>
-                    <option value="DC">DC</option>
-                    <option value="WN">WN</option>
-                </select>
-                <input value="none" id="lin" class="input" type="url" placeholder="link">
-            </div>
-            <button id="addbtn" class="add_btn">Add Lead</button> -->
+
         </div>
 
+        <!-- for view lead detaits -->
+        <div id="viewModal" class="view_mainbox">
+            <div class="view_box">
+                <button id="view_closs"" class=" view_close_btn">&times;</button>
+
+                <h2 style="color: #007bff; margin-bottom: 20px; text-align: center;">lead details</h2>
+
+                <div style="line-height: 1.8; font-size: 15px; color: #333;">
+                    <p><strong>👤 name:</strong> <span id="viewName"></span></p>
+                    <p><strong>📞 phone:</strong> <span id="viewPhone"></span></p>
+                    <p><strong>📧 email:</strong> <span id="viewEmail"></span></p>
+                    <p><strong>🛠️ service:</strong> <span id="viewService"></span></p>
+                    <p><strong>👨‍💼 agent:</strong> <span id="viewAgent"></span></p>
+                    <p><strong>📍 location:</strong> <span id="viewLocation"></span></p>
+                    <p><strong>🔗 link:</strong> <a id="viewLink" href="#" target="_blank"
+                            style="color:#007bff; text-decoration:underline;">visit</a></p>
+                    <p><strong>📝 description:</strong> <span id="viewDescription"></span></p>
+                    <p><strong>📅 date:</strong> <span id="viewDate"></span></p>
+                    <p><strong>🌐 type:</strong> <span id="viewType"></span></p>
+                    <p><strong>📊 status:</strong> <span id="viewStatus"></span></p>
+                </div>
+            </div>
+        </div>
     </section>
 
 
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
