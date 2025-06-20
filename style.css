@@ -12,9 +12,10 @@
 .nav {
     width: 100%;
     height: 7vh;
-    border-bottom: 2px solid lightgrey;
+    /* border-bottom: 2px solid lightgrey; */
     display: flex;
     align-items: center;
+    background-color: var(--primary);
 }
 
 .nav_img {
@@ -26,13 +27,19 @@
 
 .mainbox {
     display: flex;
+    overflow: hidden;
+
 }
+
+
 
 .header_mainbox {
     width: 35vh;
-    height: 92vh;
-    border-right: 2px solid lightgrey;
+    height: 93vh;
+    /* border-right: 2px solid lightgrey; */
     border-top: none;
+    background-color: var(--dark);
+
 }
 
 .head_ul {
@@ -46,7 +53,7 @@
     list-style: none;
     padding: 0px 0px;
     width: 100%;
-    height: 30px;
+    height: 40px;
     /* border: 2px solid black; */
     display: flex;
     align-items: center;
@@ -61,16 +68,28 @@
 .head_a {
     text-decoration: none;
     margin-left: 10px;
+    color: white;
+    font-size: 20px;
+
 }
 
 
 /* leads Section======================================================= */
+.space {
+    width: 100%;
+    padding: 10px 10px 0px 10px;
+    background-color: #efefef;
+}
 
 .leads_mainbox {
     width: 100%;
-    height: 92vh;
+    height: 90vh;
     /* border: 2px solid black; */
+    background-color: white;
+    border-radius: 10px;
 }
+
+
 
 .lead_op {
     /* border: 2px solid black; */
@@ -82,7 +101,7 @@
 .lead_title {
     font-size: 30px;
     padding-top: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-bottom: 20px;
 }
 
@@ -121,7 +140,7 @@
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
 }
 
 .sor_btnn {
@@ -134,7 +153,7 @@
 }
 
 .sor1 {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .sor2 {
@@ -162,6 +181,7 @@
 
 }
 
+/* 
 .lead_mainbox {
     width: 350px;
     height: 200px;
@@ -178,7 +198,6 @@
 }
 
 .lead_re {
-    /* background-color: rgb(255, 38, 38); */
     text-align: center;
     font-size: 25px;
     font-weight: 400;
@@ -187,7 +206,6 @@
 }
 
 .leadtx {
-    /* border: 2px solid black; */
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -214,6 +232,87 @@
     scrollbar-width: none;
     overflow-x: hidden;
     margin: 5px;
+} 
+*/
+
+.card {
+    background: white;
+    width: 250px;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    transition: 0.3s ease;
+    margin: 5px;
+    height: 285px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.card_wit {
+    width: 50px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.lead-type {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.lead-info {
+    margin-bottom: 10px;
+}
+
+.lead-info strong {
+    display: inline-block;
+    width: 100px;
+    color: #333;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #ffc107;
+    color: #000;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-view {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn-edit {
+    background: #28a745;
+    color: white;
 }
 
 /* Add Section======================================================= */
@@ -332,4 +431,46 @@ label {
 
 .submit-btn:hover {
     background-color: #0056b3;
+}
+
+
+
+
+
+/*  */
+
+.view_mainbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.view_box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.view_close_btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
 }
