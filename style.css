@@ -154,6 +154,8 @@
 
 .sor1 {
     margin-right: 20px;
+    padding-left: 10px;
+
 }
 
 .sor2 {
@@ -261,6 +263,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    overflow: hidden;
 }
 
 .lead-type {
@@ -273,6 +276,9 @@
 
 .lead-info {
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .lead-info strong {
@@ -306,12 +312,17 @@
 }
 
 .btn-view {
-    background: #17a2b8;
+    background: #007bff;
     color: white;
 }
 
 .btn-edit {
     background: #28a745;
+    color: white;
+}
+
+.btn-dele {
+    background: red;
     color: white;
 }
 
@@ -437,7 +448,7 @@ label {
 
 
 
-/*  */
+/* lead view section */
 
 .view_mainbox {
     display: none;
@@ -473,4 +484,26 @@ label {
     font-weight: bold;
     cursor: pointer;
     color: #999;
+}
+
+.view_title {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.viewbox {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #333;
+}
+
+.viewtx {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
