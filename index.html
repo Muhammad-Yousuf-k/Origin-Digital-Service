@@ -4,39 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="phone.css">
-    <link rel="stylesheet" href="color.css">
+    <title>Origin Digital</title>
+    <link rel="icon" href="img/odlogo.png">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/color.css">
+    <link rel="stylesheet" href="CSS/lead.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/phone_lead.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
 </head>
 
 <body>
     <!-- Nav Section===================================== -->
     <nav>
         <div class="nav">
-            <!-- <img class="nav_img" src="img/logo.png" alt="logo"> -->
+            <img class="nav_img" src="img/odlogo.png" alt="logo">
+            <img id="burger" class="burger" src="icon/burger.svg" alt="logo">
+
         </div>
     </nav>
 
-
-    <section class="mainbox">
+    <section id="Leads" class="mainbox">
 
 
         <!-- header Section===================================== -->
         <div class="header_mainbox">
             <ul class="head_ul">
-                <li class="head_li"><a class="head_a" href="#">Dashboard</a></li>
-                <li class="head_li"><a class="head_a" href="#">Leads</a></li>
+                <li id="dashli" class="head_li"><a class="head_a" href="#">Dashboard</a></li>
+                <li id="leadli" class="head_li"><a class="head_a" href="#">Leads</a></li>
                 <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
-                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
-                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
+                <li class="head_li"><a class="head_a" href="#">Contact</a></li>
+                <li class="head_li"><a class="head_a" href="#">About Us</a></li>
             </ul>
         </div>
 
+        <div id="dash" style="display: flex;" class="space0">
+            <div class="dashboard">
+
+                <!-- top summary -->
+                <div class="summary">
+                    <div class="summary-box">
+                        <h3>📋 Total Leads</h3>
+                        <p id="totc">0</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>📅 Today</h3>
+                        <p>0</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>🆕 New</h3>
+                        <p>0</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>✅ Closed</h3>
+                        <p id="cloe">0</p>
+                    </div>
+                </div>
+
+                <!-- charts + recent -->
+                <div class="main">
+                    <div class="chart">
+                        <div class="chart-title">Lead Sources</div>
+                        <img src="https://quickchart.io/chart?c={type:'pie',data:{labels:['US','UK','CA'],datasets:[{data:[45,30,25]}]}}"
+                            style="max-width:100%;" alt="lead chart">
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-title">Recent Activity</div>
+                        <div class="activity-list">
+                            <p><span>John Smith</span> – SEO</p>
+                            <p><span>Sarah Brown</span> – Web</p>
+                            <p><span>Michael Johnson</span> – Mobile App</p>
+                            <p><span>Emily Davis</span> – Graphic Design</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <!-- leads Section===================================== -->
 
-        <div class="space">
+        <div id="leadss" style="display: none;" class="space1">
             <div class="leads_mainbox">
                 <div class="lead_op">
                     <h1 class="lead_title">Leads</h1>
@@ -150,6 +199,7 @@
                                 <option value="VM">VM</option>
                                 <option value="DC">DC</option>
                                 <option value="WN">WN</option>
+                                <option value="Closed">Closed</option>
                             </select>
                         </div>
 
@@ -192,7 +242,7 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="JS/script.js"></script>
 
 </body>
 
