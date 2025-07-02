@@ -448,6 +448,55 @@ addbtn.addEventListener('click', () => {
     // New Lead Count Logic
     NewLeadCount()
 
+
+    updateDashboard()
+
     localStorage.setItem("leads", JSON.stringify(leadDataNewArr))
 })
 
+
+
+// login logic
+const correctPassword = "admin123" // change to your desired password
+
+document.getElementById('loginBtn').addEventListener('click', () => {
+    const inputPass = document.getElementById('loginPassword').value
+    if (inputPass === correctPassword) {
+        // save login session
+        localStorage.setItem("loggedIn", "true")
+        document.getElementById('loginBox').style.display = "none"
+        document.getElementById('appContent').style.display = "block"
+    } else {
+        document.getElementById('loginError').style.display = "block"
+    }
+})
+
+// check login status on page load
+window.addEventListener("load", () => {
+    if (localStorage.getItem("loggedIn") === "true") {
+        document.getElementById('loginBox').style.display = "none"
+        document.getElementById('appContent').style.display = "block"
+    }
+})
+
+// for log out logic
+function logout() {
+    localStorage.removeItem("loggedIn")
+    location.reload()
+}
+
+
+// region filter logic
+document.querySelector(".sor1").addEventListener("change", function () {
+    const selectedRegion = this.value
+    let allCards = document.querySelectorAll(".card")
+
+    allCards.forEach(card => {
+        const region = card.querySelector("#regtype").dataset.id
+        if (selectedRegion === "none" || selectedRegion === region) {
+            card.style.display = "block"
+        } else {
+            card.style.display = "none"
+        }
+    })
+})
