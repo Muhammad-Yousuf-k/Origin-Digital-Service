@@ -31,28 +31,26 @@
     /* border: 1px solid black; */
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-around;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.so1 {
-    margin-left: 20px;
+.leadbox {
+    border: 1px solid lightgray;
+    padding: 3px 3px;
+    width: 30%;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
 }
 
-.so_btnn {
-    border: 1px solid gray;
-    width: 120px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 7px;
-    background-color: white;
 
-}
-
-.so_btnn:hover {
-    background-color: lightgrey;
-}
 
 .sor_btn {
     /* border: 1px solid black; */
@@ -186,6 +184,23 @@
     overflow: hidden;
 }
 
+#datenotshow {
+    display: none;
+}
+
+.timeago {
+    display: none;
+}
+
+.timeagorecode {
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* border: 2px solid black; */
+}
+
 .lead-type {
     background-color: #007bff;
     color: white;
@@ -244,6 +259,15 @@
 .btn-dele {
     background: red;
     color: white;
+}
+
+.sbtn {
+    display: none;
+}
+
+.descripope {
+    display: none;
+
 }
 
 /* Add Section======================================================= */
