@@ -1,3 +1,18 @@
+// the container where leads card stored
+let mainCon = document.querySelector('.leads_container')
+let leadDataNewArr = [];
+let savedLeads = localStorage.getItem("leads")
+if (savedLeads) {
+    leadDataNewArr = JSON.parse(savedLeads)
+    leadDataNewArr.forEach(item => renderCard(item)) // render all saved cards
+    regionClr()
+    dataSetinCard()
+    TotalCo()
+    LeadClose()
+    NewLeadCount()
+    updateTimeAgoLoop()
+}
+let currentEditingId = null
 
 
 
@@ -5,6 +20,8 @@
 let addBnn = document.getElementById('add_btn')
 addBnn.addEventListener("click", () => {
     document.querySelector('.add_mainbox').style.display = "flex"
+    document.getElementById('editbtn').style.display = "none"
+    document.getElementById('addbtn').style.display = "block"
 })
 
 
@@ -63,11 +80,84 @@ leadli.addEventListener("click", () => {
 
 
 
+//  to count leads card logic
+function TotalCo() {
+    let getcardfortotcunt = document.querySelectorAll('.card')
+    let totalArr = Array.from(getcardfortotcunt)
+    document.getElementById('totc').innerText = totalArr.length
+}
+TotalCo()
+
+
+
+//  to count Closed leads card logic
+function LeadClose() {
+    let getcardforclo = document.querySelectorAll('.status-badge')
+    let leadClo = Array.from(getcardforclo)
+    let clocuu = 0;
+    for (let i = 0; i < leadClo.length; i++) {
+        let getcardforclo = document.querySelectorAll('.status-badge')
+        if (getcardforclo[i].innerText === "Closed") {
+            clocuu++
+            document.getElementById('cloe').innerHTML = clocuu
+        }
+    }
+    // console.log("close");
+
+}
+LeadClose()
+
+
+
+// New Lead Count Logic
+function NewLeadCount() {
+    let timeElements = document.querySelectorAll('.status-badge')
+    let NewtimeElements = Array.from(timeElements)
+    let newCount = 0;
+    for (let i = 0; i < timeElements.length; i++) {
+        let timeElements = document.querySelectorAll('.status-badge')
+        // console.log(timeElements[i].innerText);
+        if (timeElements[i].innerText === "none") {
+            newCount++
+            // console.log(newCount);
+            document.getElementById('newtract').innerText = newCount
+
+        } else {
+
+        }
+
+    }
+}
+NewLeadCount()
+
+
+
+// region color logic=============================================
+function regionClr() {
+    let region = document.querySelectorAll('.lead_re')
+    for (let i = 0; i < region.length; i++) {
+        if (region[i].innerHTML === "US-Lead") {
+            region[i].style.backgroundColor = 'blue'
+            // console.log("us");
+
+        } else if (region[i].innerHTML === "CA-Lead") {
+            region[i].style.backgroundColor = 'pink'
+        } else if (region[i].innerHTML === "UK-Lead") {
+            region[i].style.backgroundColor = 'red'
+        } else {
+            region[i].style.backgroundColor = 'grey'
+        }
+    }
+}
+
+
+
 // view window close Buttom logic
 let viewcloss = document.getElementById('viewcloss')
 viewcloss.addEventListener("click", () => {
     document.getElementById('viewModal').style.display = "none"
 })
+
 
 
 // get input tags for get data
@@ -84,32 +174,116 @@ let stat = document.getElementById('stat')
 let lin = document.getElementById('lin')
 
 
-// the container where leads card stored
-let mainCon = document.querySelector('.leads_container')
-
 
 // add lead summit btn 
 let addbtn = document.getElementById('addbtn')
 
 
 
+// After add lead all input data reset to none
+function inputDateReset() {
+    for (let i = 0; i < 11; i++) {
+        let input = document.querySelectorAll('.input')
+        input[i].value = "none"
+    }
+}
 
 
 
+// After add lead it close lead add box
+function leadAddBoxClose() {
+    document.querySelector('.add_mainbox').style.display = "none"
+}
 
 
 
+// add lead card id as dataset-id logic=============================================
+function dataSetinCard() {
+    document.getElementById("leadbox").addEventListener("click", function (e) {
+        const card = e.target.closest(".card") // get the card clicked
+        if (!card) return // if no card found, stop
+
+        const leadId = card.dataset.id // get card's unique id
+
+        if (e.target.classList.contains("btn-view")) {
+            console.log("view lead id:", leadId)
+            document.getElementById('viewModal').style.display = "flex"
+
+            // get clicked card
+            const clickedCard = e.target.closest(".card")
+
+            // get data from that card
+            const cname = clickedCard.querySelector("#CliName")?.dataset.id || ""
+            const contact = clickedCard.querySelector("#conti")?.dataset.id || ""
+            const email = clickedCard.querySelector("#emai")?.dataset.id || ""
+            const agent = clickedCard.querySelector("#Agname")?.dataset.id || ""
+            const location = clickedCard.querySelector("#locai")?.dataset.id || ""
+            const link = clickedCard.querySelector("a")?.href || ""
+            const description = clickedCard.querySelector("#descripo")?.dataset.id || ""
+            const date = clickedCard.querySelector("#datenotshow")?.innerText || ""
+            const region = clickedCard.querySelector("#regtype")?.dataset.id || ""
+            const status = clickedCard.querySelector("#status")?.dataset.id || ""
+            const service = clickedCard.querySelector("#servy")?.dataset.id || ""
+
+            // now update the view modal
+            document.getElementById('viewName').innerText = "👤 Client: " + cname
+            document.getElementById('viewContact').innerText = "📞 Phone: " + contact
+            document.getElementById('viewEmail').innerText = "📧 Email: " + email
+            document.getElementById('viewAgent').innerText = "👤 Agent: " + agent
+            document.getElementById('viewLocation').innerText = "📍 Location: " + location
+            document.getElementById('viewLink').innerText = "🔗 Link: " + link
+            document.getElementById('viewDescription').innerText = "⚫ Description: " + description
+            document.getElementById('viewDate').innerText = "📅 Date: " + date
+            document.getElementById('viewType').innerText = "🌍 Type: " + region
+            document.getElementById('viewStatus').innerText = "⚫ Status: " + status
+            document.getElementById('viewService').innerText = "🛠️ Service: " + service
+        }
+
+
+        if (e.target.classList.contains("btn-edit")) {
+            const clickedCard = e.target.closest(".card")
+            currentEditingId = clickedCard.dataset.id // store the id
+
+            document.querySelector('.add_mainbox').style.display = "flex"
+            document.getElementById('editbtn').style.display = "block"
+            document.getElementById('addbtn').style.display = "none"
+
+            // fill the inputs
+            reg.value = clickedCard.querySelector("#regtype").dataset.id
+            aname.value = clickedCard.querySelector("#Agname").dataset.id
+            cname.value = clickedCard.querySelector("#CliName").dataset.id
+            con.value = clickedCard.querySelector("#conti").dataset.id
+            ser.value = clickedCard.querySelector("#servy").dataset.id
+            email.value = clickedCard.querySelector("#emai").dataset.id
+            loca.value = clickedCard.querySelector("#locai").dataset.id
+            descri.value = clickedCard.querySelector("#descripo").dataset.id
+            stat.value = clickedCard.querySelector("#status").dataset.id
+            lin.value = clickedCard.querySelector("a").href
+        }
+
+
+        if (e.target.classList.contains("btn-dele")) {
+            let deleteDiv = document.querySelector(`[data-id="${leadId}"]`)
+            deleteDiv.remove()
+
+            // remove from array
+            leadDataNewArr = leadDataNewArr.filter(item => item.did !== leadId)
+            localStorage.setItem("leads", JSON.stringify(leadDataNewArr)) // save it
+
+            TotalCo()
+            LeadClose()
+        }
+
+    })
+}
 
 
 
-
-
-addbtn.addEventListener('click', () => {
-    // lead content Arry=============================================
-    let leadDataNewArr = [];
-    leadDataNewArr.push({
+function addCard(leadDataNewArr) {
+    const newCard = {
         date: `${date.value}`,
         did: "lead-" + Date.now(),
+        timeAgo: new Date().toISOString(),
         region: `${reg.value}`,
         aname: `${aname.value}`,
         cname: `${cname.value}`,
@@ -120,124 +294,160 @@ addbtn.addEventListener('click', () => {
         description: `${descri.value}`,
         status: `${stat.value}`,
         link: `${lin.value}`,
-    },)
+    }
+
+    leadDataNewArr.push(newCard)
+    renderCard(newCard) // use helper to render it
+    localStorage.setItem("leads", JSON.stringify(leadDataNewArr)) // <-- add this
+
+}
 
 
-    // lead cardbox append logic=============================================
-    leadDataNewArr.forEach(
-        (leadDataNewArr) => {
-            let div = document.createElement('div')
-            div.className = "card"
-            div.dataset.id = leadDataNewArr.did
-            div.innerHTML = `<div class="card-header">
-      <h3>${leadDataNewArr.cname}</h3>
-      <div class="lead_re lead-type">${leadDataNewArr.region}</div>
+
+function renderCard(data) {
+    let div = document.createElement('div')
+    div.className = "card"
+    div.dataset.id = data.did
+    div.innerHTML = `
+    <div class="card-header">
+        <h3 id="CliName" data-id="${data.cname}">${data.cname}</h3>
+        <div id="regtype" data-id="${data.region}" class="lead_re lead-type">${data.region}</div>
     </div>
-    <div class="lead-info"><strong>📞 phone:</strong><span class="card_wit">${leadDataNewArr.contact}</span></div>
-    <div class="lead-info"><strong>📧 email:</strong>${leadDataNewArr.email}</div>
-    <div class="lead-info"><strong>🛠️ service:</strong>${leadDataNewArr.service}</div>
-    <div class="lead-info"><strong>👤 agent:</strong>${leadDataNewArr.aname}</div>
-    <div class="lead-info"><strong>📍 location:</strong>${leadDataNewArr.location}</div>
-    <div class="lead-info"><strong>🔗 link:</strong> <a target="_blank" href="${leadDataNewArr.link}">${leadDataNewArr.link}</a></div>
-    <div id="status" class="status-badge">${leadDataNewArr.status}</div>
+    <div id="conti" data-id="${data.contact}" class="lead-info"><strong>📞 phone:</strong><span class="card_wit">${data.contact}</span></div>
+    <div id="emai" data-id="${data.email}" class="lead-info"><strong>📧 email:</strong>${data.email}</div>
+    <div id="servy" data-id="${data.service}" class="lead-info"><strong>🛠️ service:</strong>${data.service}</div>
+    <div id="Agname" data-id="${data.aname}" class="lead-info"><strong>👤 agent:</strong>${data.aname}</div>
+    <div id="locai" data-id="${data.location}" class="lead-info"><strong>📍 location:</strong>${data.location}</div>
+    <div class="lead-info"><strong>🔗 link:</strong> <a target="_blank" href="${data.link}">${data.link}</a></div>
+    <div id="status" data-id="${data.status}" class="status-badge">${data.status}</div>
     <div class="action-buttons">
-      <button id="viewbtn" class="btn btn-view">view</button>
-      <button class="btn btn-edit">edit</button>
-      <button class="btn btn-dele">Delete</button>
+        <h1 data-time="${data.timeAgo}" class="timeagorecode">0</h1>
+        <button id="viewbtn" class="btn btn-view">view</button>
+        <button class="btn btn-edit">edit</button>
+        <button class="btn btn-dele">Delete</button>
+        <h1 class="datenotsho" id="datenotshow">${data.date}</h1>
+        <h1 class="timeago" id="timeAgo">${data.timeAgo}</h1>
+        <h1 data-id="${data.description}" class="descripope" id="descripo">${data.description}</h1>
     </div>`
-            document.getElementById('viewName').innerText = "👤 Client: " + leadDataNewArr.cname
-            document.getElementById('viewContact').innerText = "📞 Phone: " + leadDataNewArr.contact
-            document.getElementById('viewEmail').innerText = "📧 Email: " + leadDataNewArr.email
-            document.getElementById('viewAgent').innerText = "👤 agent: " + leadDataNewArr.aname
-            document.getElementById('viewLocation').innerText = "📍 location: " + leadDataNewArr.location
-            document.getElementById('viewLink').innerText = "🔗 link: " + leadDataNewArr.link
-            document.getElementById('viewDescription').innerText = "⚫ Description: " + leadDataNewArr.description
-            document.getElementById('viewDate').innerText = "📅 Date: " + leadDataNewArr.date
-            document.getElementById('viewType').innerText = "🌍 Type: " + leadDataNewArr.region
-            document.getElementById('viewStatus').innerText = "⚫ Status: " + leadDataNewArr.status
-            document.getElementById('viewService').innerText = "🛠️ Service: " + leadDataNewArr.service
-            mainCon.appendChild(div)
-        }
-    )
+    mainCon.appendChild(div)
+}
 
+
+
+// show lead card time ago logic
+function timeAgo(inputDate) {
+    const now = new Date()
+    const date = new Date(inputDate)
+    const seconds = Math.floor((now - date) / 1000)
+
+    const intervals = {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400,
+        hour: 3600,
+        minute: 60
+    }
+    for (let key in intervals) {
+        const value = Math.floor(seconds / intervals[key])
+        if (value >= 1) {
+            return `${value} ${key}${value > 1 ? 's' : ''} ago`
+        }
+    }
+    // if less than a minute
+    return `${seconds} second${seconds !== 1 ? 's' : ''} ago`
+}
+
+
+
+function updateTimeAgoLoop() {
+    let timeElements = document.querySelectorAll('.timeagorecode')
+
+    timeElements.forEach(el => {
+        let time = el.dataset.time
+        el.innerText = timeAgo(time)
+    })
+}
+// run initially
+updateTimeAgoLoop()
+
+// run every 60 seconds
+setInterval(updateTimeAgoLoop, 6000)
+
+
+
+let editBtn = document.getElementById('editbtn')
+editbtn.addEventListener("click", () => {
+    if (!currentEditingId) return
+
+    let cardIndex = leadDataNewArr.findIndex(x => x.did === currentEditingId)
+    if (cardIndex === -1) return
+
+    // update the object in array
+    leadDataNewArr[cardIndex] = {
+        ...leadDataNewArr[cardIndex],
+        date: date.value,
+        region: reg.value,
+        aname: aname.value,
+        cname: cname.value,
+        contact: con.value,
+        service: ser.value,
+        email: email.value,
+        location: loca.value,
+        description: descri.value,
+        status: stat.value,
+        link: lin.value,
+    }
+
+    // clear and re-render all cards
+    mainCon.innerHTML = ""
+    leadDataNewArr.forEach(item => renderCard(item)) // ✅ only render, don't push again
+    dataSetinCard()
+    regionClr()
+    TotalCo()
+    LeadClose()
+    NewLeadCount()
+    updateTimeAgoLoop()
+    inputDateReset()
+    leadAddBoxClose()
+
+    currentEditingId = null
+    localStorage.setItem("leads", JSON.stringify(leadDataNewArr))
+
+})
+
+
+
+addbtn.addEventListener('click', () => {
+
+    // add lead card logic
+    addCard(leadDataNewArr)
 
     // region color logic=============================================
-    let region = document.querySelectorAll('.lead_re')
-    for (let i = 0; i < region.length; i++) {
-        if (region[i].innerHTML === "US-Lead") {
-            region[i].style.backgroundColor = 'blue'
-            console.log("us");
+    regionClr()
 
-        } else if (region[i].innerHTML === "CA-Lead") {
-            region[i].style.backgroundColor = 'pink'
-        } else if (region[i].innerHTML === "UK-Lead") {
-            region[i].style.backgroundColor = 'red'
-        } else {
-            region[i].style.backgroundColor = 'grey'
-        }
-    }
-
-    document.getElementById("leadbox").addEventListener("click", function (e) {
-        const card = e.target.closest(".card") // get the card clicked
-        if (!card) return // if no card found, stop
-
-        const leadId = card.dataset.id // get card's unique id
-
-        if (e.target.classList.contains("btn-view")) {
-            console.log("view lead id:", leadId)
-            document.getElementById('viewModal').style.display = "flex"
-        }
-
-        if (e.target.classList.contains("btn-edit")) {
-            console.log("edit lead id:", leadId)
-        }
-        if (e.target.classList.contains("btn-dele")) {
-            let deleteDiv = document.querySelector(`[data-id="${leadId}"]`)
-            deleteDiv.remove()
-        }
-    })
-
+    // add lead card id as dataset-id logic=============================================
+    dataSetinCard()
 
     // after add lead main lead box close Logic
-    document.querySelector('.add_mainbox').style.display = "none"
-
+    leadAddBoxClose()
 
     // After add lead all input data reset to none
-    for (let i = 0; i < 11; i++) {
-        let input = document.querySelectorAll('.input')
-        input[i].value = "none"
-    }
+    inputDateReset()
 
     // total lead count logic
-    let getcardfortotcunt = document.querySelectorAll('.card')
-    let totalArr = Array.from(getcardfortotcunt)
-    document.getElementById('totc').innerText = totalArr.length
-    
-    
-    
+    TotalCo()
+
     // closed lead count logic
-    let getcardforclo = document.querySelectorAll('.status-badge')
-    let leadClo = Array.from(getcardforclo)
-    let clocuu = 0;
-    for (let i = 0; i < leadClo.length; i++) {
-        let getcardforclo = document.querySelectorAll('.status-badge')
-        if (getcardforclo[i].innerText === "Closed") {
-            clocuu++
-            document.getElementById('cloe').innerHTML = clocuu
-        }
+    LeadClose()
 
-        let today = new Date();
-        let month = today.getMonth() + 1;
-        let Newmonth = "0"+month;
-        console.log(Newmonth);
+    // show lead time ago logic
+    updateTimeAgoLoop()
 
-        let dateMon = document.getElementById('viewDate').innerText
-        let NewdateMon = dateMon.slice(14,16)
-        
-        console.log(NewdateMon);
-        
-        // if () {
-            
-        // }            
-    }
+
+    // New Lead Count Logic
+    NewLeadCount()
+
+    localStorage.setItem("leads", JSON.stringify(leadDataNewArr))
 })
+
