@@ -15,234 +15,249 @@
 </head>
 
 <body>
-    <!-- Nav Section===================================== -->
-    <nav>
-        <div class="nav">
 
-            <h1 class="nav_title"><img class="nav_img" src="img/odlogo.png" alt="logo">Origin Digital</h1>
-            <img id="burger" class="burger" src="icon/burger.svg" alt="logo">
+    <div class="login-box" id="loginBox">
+        <h2>login</h2>
+        <input type="password" id="loginPassword" placeholder="enter password">
+        <button id="loginBtn">login</button>
+        <p id="loginError" style="color:red; display:none;">wrong password</p>
+    </div>
 
-        </div>
-    </nav>
+    <div id="appContent" style="display:none;">
+        <!-- your full app here -->
+        <!-- Nav Section===================================== -->
+        <nav>
+            <div class="nav">
 
-    <section id="Leads" class="mainbox">
+                <h1 class="nav_title"><img class="nav_img" src="img/odlogo.png" alt="logo">Origin Digital</h1>
+                <img id="burger" class="burger" src="icon/burger.svg" alt="logo">
 
 
-        <!-- header Section===================================== -->
-        <div class="header_mainbox">
-            <ul class="head_ul">
-                <li id="dashli" class="head_li"><a class="head_a" href="#">Dashboard</a></li>
-                <li id="leadli" class="head_li"><a class="head_a" href="#">Leads</a></li>
-                <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
-                <li class="head_li"><a class="head_a" href="#">Contact</a></li>
-                <li class="head_li"><a class="head_a" href="#">About Us</a></li>
-            </ul>
-        </div>
+            </div>
+        </nav>
 
-        <div id="dash" style="display: flex;" class="space0">
-            <div class="dashboard">
+        <section id="Leads" class="mainbox">
 
-                <!-- top summary -->
-                <div class="summary">
-                    <div class="summary-box">
-                        <h3>📋 Total Leads</h3>
-                        <p id="totc">0</p>
-                    </div>
-                    <div class="summary-box">
-                        <h3>📅 Today</h3>
-                        <p id="monthy">0</p>
-                    </div>
-                    <div class="summary-box">
-                        <h3>🆕 New</h3>
-                        <p id="newtract">0</p>
-                    </div>
-                    <div class="summary-box">
-                        <h3>✅ Closed</h3>
-                        <p id="cloe">0</p>
-                    </div>
-                </div>
 
-                <!-- charts + recent -->
-                <div class="main">
-                    <div class="chart">
-                        <div class="chart-title">Lead Sources</div>
-                        <img src="https://quickchart.io/chart?c={type:'pie',data:{labels:['US','UK','CA'],datasets:[{data:[45,30,25]}]}}"
-                            style="max-width:100%;" alt="lead chart">
-                    </div>
+            <!-- header Section===================================== -->
+            <div class="header_mainbox">
+                <ul class="head_ul">
+                    <li id="dashli" class="head_li"><a class="head_a" href="#">Dashboard</a></li>
+                    <li id="leadli" class="head_li"><a class="head_a" href="#">Leads</a></li>
+                    <li class="head_li"><a class="head_a" href="#">Unknown</a></li>
+                    <li class="head_li"><a class="head_a" href="#">Contact</a></li>
+                    <li class="head_li"><a class="head_a" href="#">About Us</a></li>
+                </ul>
+                <button class="loginbtn" onclick="logout()">logout</button>
 
-                    <div class="activity">
-                        <div class="activity-title">Recent Activity</div>
-                        <div class="activity-list">
-                            <p><span>John Smith</span> – SEO</p>
-                            <p><span>Sarah Brown</span> – Web</p>
-                            <p><span>Michael Johnson</span> – Mobile App</p>
-                            <p><span>Emily Davis</span> – Graphic Design</p>
+            </div>
+
+            <div id="dash" style="display: flex;" class="space0">
+                <div class="dashboard">
+
+                    <!-- top summary -->
+                    <div class="summary">
+                        <div class="summary-box">
+                            <h3>📋 Total Leads</h3>
+                            <p id="totc">0</p>
+                        </div>
+                        <div class="summary-box">
+                            <h3>📅 Today</h3>
+                            <p id="monthy">0</p>
+                        </div>
+                        <div class="summary-box">
+                            <h3>🆕 New</h3>
+                            <p id="newtract">0</p>
+                        </div>
+                        <div class="summary-box">
+                            <h3>✅ Closed</h3>
+                            <p id="cloe">0</p>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </div>
-
-        <!-- leads Section===================================== -->
-
-        <div id="leadss" style="display: none;" class="space1">
-            <div class="leads_mainbox">
-                <div class="lead_op">
-                    <h1 class="lead_title">Leads</h1>
-                    <div class="so_btn">
-                        <div class="leads leadbox">leads</div>
-                        <div class="Paidleads leadbox">Paid leads</div>
-                        <div class="Facebookleads leadbox">Facebook leads</div>
-                    </div>
-                    <!-- Sort Section===================================== -->
-                    <div class="sor_btn">
-                        <select class="sor_btnn sor1">
-                            <option value="none">none</option>
-                            <option value="US-Lead">US-Lead</option>
-                            <option value="UK-Lead">UK-Lead</option>
-                            <option value="CA-Lead">CA-Lead</option>
-                        </select>
-                        <button id="add_btn" class="sor_btnn sor2">Add</button>
-                    </div>
-                </div>
-
-
-                <!-- lead container Section===================================== -->
-                <div id="leadbox" class="leads_container"></div>
-            </div>
-        </div>
-
-
-
-        <!-- Add Section===================================== -->
-        <div class="add_mainbox">
-            <div class="addtop">
-                <h1 class="add_top_add">ADD</h1>
-                <h1 id="acbtn" class="add_top_X">&times;</h1>
-            </div>
-            <div class="form-container">
-                <form>
-                    <div class="form-grid">
-
-                        <div>
-                            <label for="date">date</label>
-                            <input value="none" id="date" class="input" type="date">
+                    <!-- charts + recent -->
+                    <div class="main">
+                        <div class="chart">
+                            <div class="chart-title">Lead Sources</div>
+                            <img src="https://quickchart.io/chart?c={type:'pie',data:{labels:['US','UK','CA'],datasets:[{data:[45,30,25]}]}}"
+                                style="max-width:100%;" alt="lead chart">
                         </div>
 
-                        <div>
-                            <label for="reg">type</label>
-                            <select class="input" id="reg">
+                        <div class="activity">
+                            <div class="activity-title">Recent Activity</div>
+                            <div class="activity-list">
+                                <p><span>John Smith</span> – SEO</p>
+                                <p><span>Sarah Brown</span> – Web</p>
+                                <p><span>Michael Johnson</span> – Mobile App</p>
+                                <p><span>Emily Davis</span> – Graphic Design</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- leads Section===================================== -->
+
+            <div id="leadss" style="display: none;" class="space1">
+                <div class="leads_mainbox">
+                    <div class="lead_op">
+                        <h1 class="lead_title">Leads</h1>
+                        <div class="so_btn">
+                            <div class="leads leadbox">leads</div>
+                            <div class="Paidleads leadbox">Paid leads</div>
+                            <div class="Facebookleads leadbox">Facebook leads</div>
+                        </div>
+                        <!-- Sort Section===================================== -->
+                        <div class="sor_btn">
+                            <select class="sor_btnn sor1">
                                 <option value="none">none</option>
                                 <option value="US-Lead">US-Lead</option>
                                 <option value="UK-Lead">UK-Lead</option>
                                 <option value="CA-Lead">CA-Lead</option>
                             </select>
+                            <button id="add_btn" class="sor_btnn sor2">Add</button>
                         </div>
-
-                        <div>
-                            <label for="Aname">agent</label>
-                            <select class="input" id="Aname">
-                                <option value="none">none</option>
-                                <option value="Yousuf">Yousuf</option>
-                                <option value="Ahmed">Ahmed</option>
-                                <option value="Raza">Bilal</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="Cname">Client name</label>
-                            <input value="none" id="Cname" class="input" type="text" placeholder="client name">
-                        </div>
-
-                        <div>
-                            <label for="Con">phone number</label>
-                            <input value="none" id="Con" class="input" type="text" placeholder="contact no.">
-                        </div>
-
-                        <div>
-                            <label for="ser">service</label>
-                            <select class="input" id="ser">
-                                <option value="none">none</option>
-                                <option value="SMM">SMM</option>
-                                <option value="Video Editing">Video Editing</option>
-                                <option value="Animation">Animation</option>
-                                <option value="Logo Design">Logo Design</option>
-                                <option value="Graphic Design">Graphic Design</option>
-                                <option value="Web Design">Web Design</option>
-                                <option value="Moblie App">Moblie App</option>
-                                <option value="SEO">SEO</option>
-                                <option value="Business Consulting">Business Consulting</option>
-                                <option value="Resume Writing">Resume Writing</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="email">emails</label>
-                            <input name="email" value="none" id="email" class="input" type="text" placeholder="email">
-                        </div>
-
-                        <div>
-                            <label for="loca">location</label>
-                            <input value="none" id="loca" class="input" type="text" placeholder="location">
-                        </div>
-
-                        <div>
-                            <label for="descri">description</label>
-                            <input value="none" id="descri" class="input" type="text" placeholder="description">
-                        </div>
-
-                        <div>
-                            <label for="stat">disposition</label>
-                            <select class="input" id="stat">
-                                <option value="none">none</option>
-                                <option value="ES">ES</option>
-                                <option value="VM">VM</option>
-                                <option value="DC">DC</option>
-                                <option value="WN">WN</option>
-                                <option value="Closed">Closed</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="lin">link</label>
-                            <input value="none" id="lin" class="input" type="text" placeholder="link">
-                        </div>
-
                     </div>
 
-                    <button id="addbtn" class="submit-btn" type="button">ADD Lead</button>
-                    <button id="editbtn" class="sbtn submit-btn" type="button">Edit Lead</button>
-                </form>
-            </div>
 
-        </div>
-
-        <!-- for view lead detaits -->
-        <div id="viewModal" class="view_mainbox">
-            <div class="view_box">
-                <button id="viewcloss"" class=" view_close_btn">&times;</button>
-
-                <h2 class="view_title">lead details</h2>
-
-                <div class="viewbox">
-                    <h1 class="viewtx" id="viewName"></h1>
-                    <h1 class="viewtx" id="viewContact"></h1>
-                    <h1 class="viewtx" id="viewEmail"></h1>
-                    <h1 class="viewtx" id="viewAgent"></h1>
-                    <h1 class="viewtx" id="viewLocation"></h1>
-                    <h1 class="viewtx" id="viewLink"></h1>
-                    <h1 class="viewtx" id="viewDescription"></h1>
-                    <h1 class="viewtx" id="viewDate"></h1>
-                    <h1 class="viewtx" id="viewType"></h1>
-                    <h1 class="viewtx" id="viewStatus"></h1>
-                    <h1 class="viewtx" id="viewService"></h1>
+                    <!-- lead container Section===================================== -->
+                    <div id="leadbox" class="leads_container"></div>
                 </div>
             </div>
-        </div>
-    </section>
 
 
+
+            <!-- Add Section===================================== -->
+            <div class="add_mainbox">
+                <div class="addtop">
+                    <h1 class="add_top_add">ADD</h1>
+                    <h1 id="acbtn" class="add_top_X">&times;</h1>
+                </div>
+                <div class="form-container">
+                    <form>
+                        <div class="form-grid">
+
+                            <div>
+                                <label for="date">date</label>
+                                <input value="none" id="date" class="input" type="date">
+                            </div>
+
+                            <div>
+                                <label for="reg">type</label>
+                                <select class="input" id="reg">
+                                    <option value="none">none</option>
+                                    <option value="US-Lead">US-Lead</option>
+                                    <option value="UK-Lead">UK-Lead</option>
+                                    <option value="CA-Lead">CA-Lead</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="Aname">agent</label>
+                                <select class="input" id="Aname">
+                                    <option value="none">none</option>
+                                    <option value="Yousuf">Yousuf</option>
+                                    <option value="Ahmed">Ahmed</option>
+                                    <option value="Raza">Bilal</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="Cname">Client name</label>
+                                <input value="none" id="Cname" class="input" type="text" placeholder="client name">
+                            </div>
+
+                            <div>
+                                <label for="Con">phone number</label>
+                                <input value="none" id="Con" class="input" type="text" placeholder="contact no.">
+                            </div>
+
+                            <div>
+                                <label for="ser">service</label>
+                                <select class="input" id="ser">
+                                    <option value="none">none</option>
+                                    <option value="SMM">SMM</option>
+                                    <option value="Video Editing">Video Editing</option>
+                                    <option value="Animation">Animation</option>
+                                    <option value="Logo Design">Logo Design</option>
+                                    <option value="Graphic Design">Graphic Design</option>
+                                    <option value="Web Design">Web Design</option>
+                                    <option value="Moblie App">Moblie App</option>
+                                    <option value="SEO">SEO</option>
+                                    <option value="Business Consulting">Business Consulting</option>
+                                    <option value="Resume Writing">Resume Writing</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="email">emails</label>
+                                <input name="email" value="none" id="email" class="input" type="text"
+                                    placeholder="email">
+                            </div>
+
+                            <div>
+                                <label for="loca">location</label>
+                                <input value="none" id="loca" class="input" type="text" placeholder="location">
+                            </div>
+
+                            <div>
+                                <label for="descri">description</label>
+                                <input value="none" id="descri" class="input" type="text" placeholder="description">
+                            </div>
+
+                            <div>
+                                <label for="stat">disposition</label>
+                                <select class="input" id="stat">
+                                    <option value="none">none</option>
+                                    <option value="ES">ES</option>
+                                    <option value="VM">VM</option>
+                                    <option value="DC">DC</option>
+                                    <option value="WN">WN</option>
+                                    <option value="Closed">Closed</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="lin">link</label>
+                                <input value="none" id="lin" class="input" type="text" placeholder="link">
+                            </div>
+
+                        </div>
+
+                        <button id="addbtn" class="submit-btn" type="button">ADD Lead</button>
+                        <button id="editbtn" class="sbtn submit-btn" type="button">Edit Lead</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- for view lead detaits -->
+            <div id="viewModal" class="view_mainbox">
+                <div class="view_box">
+                    <button id="viewcloss"" class=" view_close_btn">&times;</button>
+
+                    <h2 class="view_title">lead details</h2>
+
+                    <div class="viewbox">
+                        <h1 class="viewtx" id="viewName"></h1>
+                        <h1 class="viewtx" id="viewContact"></h1>
+                        <h1 class="viewtx" id="viewEmail"></h1>
+                        <h1 class="viewtx" id="viewAgent"></h1>
+                        <h1 class="viewtx" id="viewLocation"></h1>
+                        <h1 class="viewtx" id="viewLink"></h1>
+                        <h1 class="viewtx" id="viewDescription"></h1>
+                        <h1 class="viewtx" id="viewDate"></h1>
+                        <h1 class="viewtx" id="viewType"></h1>
+                        <h1 class="viewtx" id="viewStatus"></h1>
+                        <h1 class="viewtx" id="viewService"></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
 
     <script src="JS/script.js"></script>
 
