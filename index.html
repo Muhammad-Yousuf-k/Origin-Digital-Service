@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Origin Digital</title>
     <link rel="icon" href="img/odlogo.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/color.css">
-    <link rel="stylesheet" href="css/lead.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/phone_lead.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/color.css">
+    <link rel="stylesheet" href="CSS/lead.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/phone_lead.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
 </head>
 
 <body>
     <!-- Nav Section===================================== -->
     <nav>
         <div class="nav">
-            <img class="nav_img" src="img/odlogo.png" alt="logo">
+
+            <h1 class="nav_title"><img class="nav_img" src="img/odlogo.png" alt="logo">Origin Digital</h1>
             <img id="burger" class="burger" src="icon/burger.svg" alt="logo">
 
         </div>
@@ -49,11 +50,11 @@
                     </div>
                     <div class="summary-box">
                         <h3>📅 Today</h3>
-                        <p>0</p>
+                        <p id="monthy">0</p>
                     </div>
                     <div class="summary-box">
                         <h3>🆕 New</h3>
-                        <p>0</p>
+                        <p id="newtract">0</p>
                     </div>
                     <div class="summary-box">
                         <h3>✅ Closed</h3>
@@ -90,9 +91,9 @@
                 <div class="lead_op">
                     <h1 class="lead_title">Leads</h1>
                     <div class="so_btn">
-                        <button class="so_btnn so1">UnPaid Leads</button>
-                        <button class="so_btnn">Paid Leads</button>
-                        <button class="so_btnn">Facebook Leads</button>
+                        <div class="leads leadbox">leads</div>
+                        <div class="Paidleads leadbox">Paid leads</div>
+                        <div class="Facebookleads leadbox">Facebook leads</div>
                     </div>
                     <!-- Sort Section===================================== -->
                     <div class="sor_btn">
@@ -145,7 +146,7 @@
                                 <option value="none">none</option>
                                 <option value="Yousuf">Yousuf</option>
                                 <option value="Ahmed">Ahmed</option>
-                                <option value="Raza">Raza</option>
+                                <option value="Raza">Bilal</option>
                             </select>
                         </div>
 
@@ -164,15 +165,15 @@
                             <select class="input" id="ser">
                                 <option value="none">none</option>
                                 <option value="SMM">SMM</option>
-                                <option value="VIDEO EDITING">VIDEO EDITING</option>
-                                <option value="ANIMATION">ANIMATION</option>
-                                <option value="LOGO DESIGN">LOGO DESIGN</option>
-                                <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
-                                <option value="WEB DESIGN">WEB DESIGN</option>
-                                <option value="MOBILE APP">MOBILE APP</option>
+                                <option value="Video Editing">Video Editing</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Logo Design">Logo Design</option>
+                                <option value="Graphic Design">Graphic Design</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Moblie App">Moblie App</option>
                                 <option value="SEO">SEO</option>
-                                <option value="BUSINESS CONSULTING">BUSINESS CONSULTING</option>
-                                <option value="RESUME WRITING">RESUME WRITING</option>
+                                <option value="Business Consulting">Business Consulting</option>
+                                <option value="Resume Writing">Resume Writing</option>
                             </select>
                         </div>
 
@@ -211,6 +212,7 @@
                     </div>
 
                     <button id="addbtn" class="submit-btn" type="button">ADD Lead</button>
+                    <button id="editbtn" class="sbtn submit-btn" type="button">Edit Lead</button>
                 </form>
             </div>
 
